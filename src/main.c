@@ -1,3 +1,4 @@
+#include <cli_options.h>
 #include <input_validation/input_receivers.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -20,6 +21,7 @@ int main() {
 
     switch (opcion_menu) {
     case 1:
+      cli_crear_receta();
       break;
     case 2:
       break;
