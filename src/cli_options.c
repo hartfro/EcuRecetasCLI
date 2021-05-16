@@ -3,6 +3,8 @@
 
 #define BUFFER_SIZE 300
 
+void clear_screen() { printf("\e[1;1H\e[2J"); }
+
 void cli_crear_receta() {
   int number_of_ingredients, number_of_instructions;
   char quantity_of_ingredient[BUFFER_SIZE],
@@ -28,7 +30,7 @@ void cli_crear_receta() {
   }
 
   for (int i = 1; i <= number_of_ingredients; i++) {
-    fputs("Ingrese el nombre del ingrediente: ", stdout);
+    fputs("\nIngrese el nombre del ingrediente: ", stdout);
     fgets(ingredient_name, BUFFER_SIZE, stdin);
 
     while (1) {
@@ -47,7 +49,7 @@ void cli_crear_receta() {
   }
 
   while (1) {
-    fputs("Ingrese la cantidad de instrucciones: ", stdout);
+    fputs("\nIngrese la cantidad de instrucciones: ", stdout);
     fgets(number_of_instructions_str, BUFFER_SIZE, stdin);
 
     number_of_instructions = atoi(number_of_instructions_str);
@@ -61,7 +63,10 @@ void cli_crear_receta() {
   }
 
   for (int i = 1; i <= number_of_instructions; i++) {
-    fputs("Ingrese cada instrucción para la receta: ", stdout);
+    fputs("\nIngrese cada instrucción para la receta: ", stdout);
     fgets(instruction, BUFFER_SIZE, stdin);
   }
+
+  puts("Receta creada correctamente. Presione ENTER para continuar.");
+  getchar();
 }

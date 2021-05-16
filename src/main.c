@@ -10,6 +10,7 @@ int main() {
   int opcion_menu;
 
   while (1) {
+    clear_screen();
     puts("\nEcuRecetas - Menú Principal");
     puts("1. Crear Receta.");
     puts("2. Eliminar Receta.");
@@ -24,10 +25,13 @@ int main() {
       cli_crear_receta();
       break;
     case 2:
+      // cli_eliminar_receta();
       break;
     case 3:
+      // cli_modificar_receta();
       break;
     case 4:
+      // cli_buscar_receta();
       break;
     case 5:
       puts("\n¡Gracias por usar EcuRecetas!");
