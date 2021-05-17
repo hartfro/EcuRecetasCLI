@@ -23,3 +23,22 @@ void int_input(int *x, bool (*validator)(int a)) {
     puts(INPUT_ERROR_MSG);
   }
 }
+
+void float_input(float *x, bool (*validator)(float a)) {
+  char input_str[BUFFER_SIZE];
+  float input;
+
+  while (1) {
+    fputs(": ", stdout);
+    fgets(input_str, BUFFER_SIZE, stdin);
+
+    input = atof(input_str);
+
+    if ((*validator)(input)) {
+      *x = input;
+      break;
+    }
+
+    puts(INPUT_ERROR_MSG);
+  }
+}

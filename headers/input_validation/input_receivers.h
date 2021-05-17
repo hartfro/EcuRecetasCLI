@@ -12,4 +12,6 @@
  */
 void int_input(int *x, bool(*validator)(int a));
 
+void float_input(float *x, bool(*validator)(float a));
+
 #endif
