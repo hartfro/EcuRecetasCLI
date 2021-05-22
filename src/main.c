@@ -35,9 +35,9 @@ int main() {
       break;
     case 5:
       puts("\n¡Gracias por usar EcuRecetas!");
-      return 1;
+      return 0;
     }
   }
 
-  return 1;
+  return 0;
 }
