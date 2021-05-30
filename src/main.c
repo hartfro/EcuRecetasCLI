@@ -2,6 +2,7 @@
 #include <input_validation/input_receivers.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <style.h>
 
 static bool menu_validator(int x) { return x > 0 && x <= 5; }
 
@@ -11,12 +12,12 @@ int main() {
 
   while (1) {
     clear_screen();
-    puts("\nEcuRecetas - Menú Principal");
-    puts("1. Crear Receta.");
-    puts("2. Eliminar Receta.");
-    puts("3. Modificar Receta.");
-    puts("4. Buscar Receta.");
-    puts("5. Salir.");
+    puts(RED BLD "\nEcuRecetas - Menú Principal" RESET);
+    puts(BLD "1. " RESET "Crear Receta.");
+    puts(BLD "2. " RESET "Eliminar Receta.");
+    puts(BLD "3. " RESET "Modificar Receta.");
+    puts(BLD "4. " RESET "Buscar Receta.");
+    puts(BLD "5. " RESET "Salir.");
 
     int_input(&opcion_menu, &menu_validator);
 
@@ -34,7 +35,7 @@ int main() {
       // cli_buscar_receta();
       break;
     case 5:
-      puts("\n¡Gracias por usar EcuRecetas!");
+      puts(GRN "\n¡Gracias por usar EcuRecetas!");
       return 0;
     }
   }
