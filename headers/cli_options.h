@@ -6,6 +6,6 @@
 void cli_crear_receta(RecipeData *data);
 void cli_eliminar_receta();
 void cli_modificar_receta();
-void cli_buscar_receta();
+void cli_buscar_receta(RecipeData *data);
 
 #endif

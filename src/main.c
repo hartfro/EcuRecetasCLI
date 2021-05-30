@@ -8,9 +8,9 @@
 
 static bool menu_validator(int x) { return x > 0 && x <= 5; }
 
-int main() {
-  RecipeData data;
+RecipeData data;
 
+int main() {
   // Menú principal
   int opcion_menu;
 
@@ -37,7 +37,7 @@ int main() {
       // cli_modificar_receta();
       break;
     case 4:
-      // cli_buscar_receta();
+      cli_buscar_receta(&data);
       break;
     case 5:
       puts(GRN "\n¡Gracias por usar EcuRecetas!");

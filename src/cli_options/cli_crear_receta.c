@@ -49,6 +49,7 @@ void cli_crear_receta(RecipeData *data) {
   data->numbers_of_instructions[i] = number_of_instructions;
   memcpy(data->instructions[i], instructions, sizeof data->instructions[i]);
 
-  puts(GRN "Receta creada correctamente. Presione ENTER para continuar." RESET);
+  puts(GRN "Receta creada exitosamente. Presione " BLD "ENTER " RESET GRN
+           "para continuar." RESET);
   getchar();
 }
