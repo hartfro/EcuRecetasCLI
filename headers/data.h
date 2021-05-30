@@ -14,4 +14,6 @@ typedef struct RecipeData {
 
 void show_recipe(RecipeData *data, int i);
 
+void show_all_recipes(RecipeData *data);
+
 #endif

@@ -14,3 +14,9 @@ void show_recipe(RecipeData *data, int i) {
   for (int j = 0; j < data->numbers_of_instructions[i]; j++)
     printf("\t%i. %s\n", j + 1, data->instructions[i][j]);
 }
+
+void show_all_recipes(RecipeData *data) {
+  for (int i = 0; i < data->number_of_recipes; i++) {
+    printf(BLU "%i. " RESET "%s\n", i + 1, data->recipe_names[i]);
+  }
+}

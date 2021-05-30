@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <style.h>
 
-static bool menu_validator(int x) { return x > 0 && x <= 5; }
+static bool menu_validator(int x) { return x > 0 && x <= 6; }
 
 RecipeData data;
 
@@ -21,8 +21,9 @@ int main() {
     puts(BLD "1. " RESET "Crear Receta.");
     puts(BLD "2. " RESET "Eliminar Receta.");
     puts(BLD "3. " RESET "Modificar Receta.");
-    puts(BLD "4. " RESET "Buscar Receta.");
-    puts(BLD "5. " RESET "Salir.");
+    puts(BLD "4. " RESET "Mostrar todas las recetas.");
+    puts(BLD "5. " RESET "Buscar Receta.");
+    puts(BLD "6. " RESET "Salir.");
 
     int_input(&opcion_menu, &menu_validator);
 
@@ -37,9 +38,12 @@ int main() {
       // cli_modificar_receta();
       break;
     case 4:
-      cli_buscar_receta(&data);
+      cli_mostrar_todas_recetas(&data);
       break;
     case 5:
+      cli_buscar_receta(&data);
+      break;
+    case 6:
       puts(GRN "\n¡Gracias por usar EcuRecetas!");
       return 0;
     }
