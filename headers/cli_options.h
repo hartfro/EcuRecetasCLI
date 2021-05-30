@@ -1,5 +1,8 @@
 #include <data.h>
 
+/*
+ * Functions corresponding to each entry in the menu.
+ */
 #ifndef CLI_OPTIONS_H
 #define CLI_OPTIONS_H
 

@@ -10,8 +10,15 @@
  * @param *x es la variable que guardará el input del usuario.
  * @param *validator es una función que devuelve true si el input es correcto.
  */
-void int_input(int *x, bool(*validator)(int a));
+void int_input(int *x, bool (*validator)(int a));
 
-void float_input(float *x, bool(*validator)(float a));
+/**
+ * Recibe input de tipo float por el stdin y no permite continuar hasta
+ * que este sea válido.
+ *
+ * @param *x es la variable que guardará el input del usuario.
+ * @param *validator es una función que devuelve true si el input es correcto.
+ */
+void float_input(float *x, bool (*validator)(float a));
 
 #endif

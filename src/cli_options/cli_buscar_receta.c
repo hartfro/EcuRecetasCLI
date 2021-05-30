@@ -16,7 +16,7 @@ void cli_buscar_receta(RecipeData *data) {
 
   fgets(recipe_name, BUFFER_SIZE, stdin);
 
-  // Search in data.
+  // Perform linear search through data.
   bool found_recipe = false;
   int i;
   for (i = 0; i < data->number_of_recipes; i++) {
