@@ -1,10 +1,13 @@
 #include <cli_options.h>
+#include <constants.h>
+#include <data.h>
 #include <input_validation/input_receivers.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <style.h>
 
 static bool menu_validator(int x) { return x > 0 && x <= 5; }
+RecipeData data;
 
 int main() {
   // Menú principal
@@ -24,7 +27,7 @@ int main() {
 
     switch (opcion_menu) {
     case 1:
-      cli_crear_receta();
+      cli_crear_receta(&data);
       break;
     case 2:
       // cli_eliminar_receta();
