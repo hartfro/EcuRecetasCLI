@@ -7,9 +7,10 @@
 #include <style.h>
 
 static bool menu_validator(int x) { return x > 0 && x <= 5; }
-RecipeData data;
 
 int main() {
+  RecipeData data;
+
   // Menú principal
   int opcion_menu;
 
