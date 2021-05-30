@@ -5,8 +5,6 @@
 
 #define BUFFER_SIZE 300
 
-void clear_screen() { printf("\e[1;1H\e[2J"); }
-
 void cli_crear_receta() {
   int number_of_ingredients, number_of_instructions;
   float quantity_of_ingredient;

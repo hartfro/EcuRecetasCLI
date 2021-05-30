@@ -11,7 +11,8 @@ int main() {
   int opcion_menu;
 
   while (1) {
-    clear_screen();
+    puts(CLR);
+
     puts(RED BLD "\nEcuRecetas - Menú Principal" RESET);
     puts(BLD "1. " RESET "Crear Receta.");
     puts(BLD "2. " RESET "Eliminar Receta.");

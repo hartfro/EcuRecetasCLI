@@ -4,6 +4,8 @@
 #define ESC "\x1B"
 #define RESET ESC "[0m"
 
+#define CLR "\e[1;1H\e[2J"
+
 #define BLD ESC "[1m"
 #define DIM ESC "[2m"
 #define ITL ESC "[3m"
