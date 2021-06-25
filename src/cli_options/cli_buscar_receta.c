@@ -7,7 +7,13 @@
 
 #define RECIPE_NOT_FOUND_ERROR RED "¡Receta no encontrada!"
 
-void cli_buscar_receta(RecipeData *data) {
+void cli_buscar_receta(
+    int n_recipes, int n_ingredients[BUFFER_SIZE],
+    int n_instructions[BUFFER_SIZE],
+    float quantities_of_ingredients[BUFFER_SIZE][BUFFER_SIZE],
+    char recipe_names[BUFFER_SIZE][BUFFER_SIZE],
+    char ingredient_names[BUFFER_SIZE][BUFFER_SIZE][BUFFER_SIZE],
+    char instructions[BUFFER_SIZE][BUFFER_SIZE][BUFFER_SIZE]) {
   char recipe_name[BUFFER_SIZE];
 
   // Get input.
@@ -19,8 +25,8 @@ void cli_buscar_receta(RecipeData *data) {
   // Perform linear search through data.
   bool found_recipe = false;
   int i;
-  for (i = 0; i < data->number_of_recipes; i++) {
-    if (strcmp(recipe_name, data->recipe_names[i]) == 0) {
+  for (i = 0; i < n_recipes; i++) {
+    if (strcmp(recipe_name, recipe_names[i]) == 0) {
       found_recipe = true;
       break;
     }
@@ -28,7 +34,9 @@ void cli_buscar_receta(RecipeData *data) {
 
   if (found_recipe) {
     puts(CLR);
-    show_recipe(data, i);
+    show_recipe(i, n_recipes, n_ingredients, n_instructions,
+                quantities_of_ingredients, recipe_names, ingredient_names,
+                instructions);
   } else {
     puts(CLR);
     puts(RECIPE_NOT_FOUND_ERROR);
