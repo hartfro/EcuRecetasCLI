@@ -1,6 +1,18 @@
 #include <data.h>
 #include <stdio.h>
+#include <string.h>
 #include <style.h>
+
+/* Searches a recipe by name and returns its index. */
+int search_recipe_by_name(char name[BUFFER_SIZE], int n_recipes,
+                          char recipe_names[BUFFER_SIZE][BUFFER_SIZE]) {
+  for (int i = 0; i < n_recipes; i++) {
+    if (strcmp(name, recipe_names[i]) == 0)
+      return i;
+  }
+
+  return -1;
+}
 
 void show_recipe(int i, int n_recipes, int n_ingredients[BUFFER_SIZE],
                  int n_instructions[BUFFER_SIZE],

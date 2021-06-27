@@ -23,16 +23,9 @@ void cli_buscar_receta(
   fgets(recipe_name, BUFFER_SIZE, stdin);
 
   // Perform linear search through data.
-  bool found_recipe = false;
-  int i;
-  for (i = 0; i < n_recipes; i++) {
-    if (strcmp(recipe_name, recipe_names[i]) == 0) {
-      found_recipe = true;
-      break;
-    }
-  }
+  int i = search_recipe_by_name(recipe_name, n_recipes, recipe_names);
 
-  if (found_recipe) {
+  if (i >= 0) {
     puts(CLR);
     show_recipe(i, n_recipes, n_ingredients, n_instructions,
                 quantities_of_ingredients, recipe_names, ingredient_names,

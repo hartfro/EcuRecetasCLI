@@ -3,6 +3,9 @@
 #ifndef DATA_H
 #define DATA_H
 
+int search_recipe_by_name(char name[BUFFER_SIZE], int n_recipes,
+                          char recipe_names[BUFFER_SIZE][BUFFER_SIZE]);
+
 void show_recipe(int i, int n_recipes, int n_ingredients[BUFFER_SIZE],
                  int n_instructions[BUFFER_SIZE],
                  float quantities_of_ingredients[BUFFER_SIZE][BUFFER_SIZE],
