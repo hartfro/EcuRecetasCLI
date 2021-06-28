@@ -14,6 +14,26 @@ int search_recipe_by_name(char name[BUFFER_SIZE], int n_recipes,
   return -1;
 }
 
+void modify_recipe(int i, char new_name[BUFFER_SIZE], int new_n_ingredients,
+                   char new_ingredients[BUFFER_SIZE][BUFFER_SIZE],
+                   float new_quantities_of_ingredients[BUFFER_SIZE],
+                   int new_n_instructions,
+                   char new_instructions[BUFFER_SIZE][BUFFER_SIZE],
+                   int n_ingredients[BUFFER_SIZE],
+                   int n_instructions[BUFFER_SIZE],
+                   float quantities_of_ingredients[BUFFER_SIZE][BUFFER_SIZE],
+                   char recipe_names[BUFFER_SIZE][BUFFER_SIZE],
+                   char ingredient_names[BUFFER_SIZE][BUFFER_SIZE][BUFFER_SIZE],
+                   char instructions[BUFFER_SIZE][BUFFER_SIZE][BUFFER_SIZE]) {
+  memcpy(recipe_names[i], new_name, sizeof recipe_names[i]);
+  n_ingredients[i] = new_n_ingredients;
+  memcpy(ingredient_names[i], new_ingredients, sizeof ingredient_names[i]);
+  memcpy(quantities_of_ingredients[i], new_quantities_of_ingredients,
+         sizeof quantities_of_ingredients[i]);
+  n_instructions[i] = new_n_instructions;
+  memcpy(instructions[i], new_instructions, sizeof instructions[i]);
+}
+
 void show_recipe(int i, int n_recipes, int n_ingredients[BUFFER_SIZE],
                  int n_instructions[BUFFER_SIZE],
                  float quantities_of_ingredients[BUFFER_SIZE][BUFFER_SIZE],
