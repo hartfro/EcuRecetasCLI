@@ -5,8 +5,6 @@
 #include <string.h>
 #include <style.h>
 
-#define RECIPE_NOT_FOUND_ERROR RED "¡Receta no encontrada!"
-
 void cli_buscar_receta(
     int n_recipes, int n_ingredients[BUFFER_SIZE],
     int n_instructions[BUFFER_SIZE],

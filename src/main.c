@@ -42,7 +42,9 @@ int main() {
       // cli_eliminar_receta();
       break;
     case 3:
-      // cli_modificar_receta();
+      cli_modificar_receta(n_recipes, n_ingredients, n_instructions,
+                           quantities_of_ingredients, recipe_names,
+                           ingredient_names, instructions);
       break;
     case 4:
       cli_mostrar_todas_recetas(n_recipes, recipe_names);
