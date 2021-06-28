@@ -2,6 +2,7 @@
 #include <data.h>
 #include <input_validation/input_receivers.h>
 #include <input_validation/validators.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
 #include <style.h>
@@ -33,7 +34,7 @@ void cli_modificar_receta(
           stdout);
     fgets(new_name, BUFFER_SIZE, stdin);
 
-    if (strcmp(new_name, "\n")) {
+    if (strcmp(new_name, "\n") == 0) {
       strcpy(new_name, recipe_names[i]);
     }
 
@@ -42,17 +43,16 @@ void cli_modificar_receta(
     fgets(s_n_str, BUFFER_SIZE, stdin);
 
     if (strcmp(s_n_str, "s\n") == 0) {
-      fputs(BLD "Ingrese el nuevo número de ingredientes (en blanco para no "
-                "modificar)" RESET,
-            stdout);
-      int_input(&new_n_ingredients, &validate_int_g0);
+      fputs(BLD "Ingrese el nuevo número de ingredientes" RESET, stdout);
+      int_input(&new_n_ingredients, &validate_int_g0, false);
 
       for (int j = 0; j < new_n_ingredients; j++) {
         fputs(BLD "\nIngrese el nombre del ingrediente: " RESET, stdout);
         fgets(new_ingredients[j], BUFFER_SIZE, stdin);
 
         fputs(BLD "Ingrese la cantidad del ingrediente" RESET, stdout);
-        float_input(&new_quantities_of_ingredients[j], &validate_float_g0);
+        float_input(&new_quantities_of_ingredients[j], &validate_float_g0,
+                    false);
       }
     } else {
       new_n_ingredients = n_ingredients[i];
@@ -66,7 +66,7 @@ void cli_modificar_receta(
 
     if (strcmp(s_n_str, "s\n") == 0) {
       fputs(BLD "\nIngrese la nueva cantidad de instrucciones" RESET, stdout);
-      int_input(&new_n_instructions, &validate_int_g0);
+      int_input(&new_n_instructions, &validate_int_g0, false);
 
       for (int j = 0; j < new_n_instructions; j++) {
         fputs(BLD "\nIngrese cada instrucción para la receta: " RESET, stdout);

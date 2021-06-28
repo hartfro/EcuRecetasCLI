@@ -30,7 +30,7 @@ int main() {
     puts(BLD "5. " RESET "Buscar Receta.");
     puts(BLD "6. " RESET "Salir.");
 
-    int_input(&opcion_menu, &menu_validator);
+    int_input(&opcion_menu, &menu_validator, false);
 
     switch (opcion_menu) {
     case 1:

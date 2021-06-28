@@ -24,18 +24,18 @@ void cli_crear_receta(
   fgets(recipe_names[i], BUFFER_SIZE, stdin);
 
   fputs(BLD "Ingrese el número de ingredientes" RESET, stdout);
-  int_input(&n_ingredients[i], &validate_int_g0);
+  int_input(&n_ingredients[i], &validate_int_g0, false);
 
   for (int j = 0; j < n_ingredients[i]; j++) {
     fputs(BLD "\nIngrese el nombre del ingrediente: " RESET, stdout);
     fgets(ingredient_names[i][j], BUFFER_SIZE, stdin);
 
     fputs(BLD "Ingrese la cantidad del ingrediente" RESET, stdout);
-    float_input(&quantities_of_ingredients[i][j], &validate_float_g0);
+    float_input(&quantities_of_ingredients[i][j], &validate_float_g0, false);
   }
 
   fputs(BLD "\nIngrese la cantidad de instrucciones" RESET, stdout);
-  int_input(&n_instructions[i], &validate_int_g0);
+  int_input(&n_instructions[i], &validate_int_g0, false);
 
   for (int j = 0; j < n_instructions[i]; j++) {
     fputs(BLD "\nIngrese cada instrucción para la receta: " RESET, stdout);
