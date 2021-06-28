@@ -1,3 +1,6 @@
+/*
+ * Constants to style terminal output with colors and decorations.
+ */
 #ifndef COLORS_H
 #define COLORS_H
 
