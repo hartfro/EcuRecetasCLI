@@ -25,6 +25,8 @@ void cli_modificar_receta(
   puts(BLD "Ingrese el nombre de la receta a modificar." RESET);
 
   fgets(recipe_name, BUFFER_SIZE, stdin);
+  puts("");
+
   int i = search_recipe_by_name(recipe_name, n_recipes, recipe_names);
 
   if (i >= 0) {
@@ -33,6 +35,7 @@ void cli_modificar_receta(
               "modificar): " RESET,
           stdout);
     fgets(new_name, BUFFER_SIZE, stdin);
+    puts("");
 
     if (strcmp(new_name, "\n") == 0) {
       strcpy(new_name, recipe_names[i]);
@@ -41,6 +44,7 @@ void cli_modificar_receta(
     char s_n_str[BUFFER_SIZE];
     puts(BLU BLD "¿Modificar ingredientes? (s/n)" RESET);
     fgets(s_n_str, BUFFER_SIZE, stdin);
+    puts("");
 
     if (strcmp(s_n_str, "s\n") == 0) {
       fputs(BLD "Ingrese el nuevo número de ingredientes" RESET, stdout);
@@ -61,11 +65,12 @@ void cli_modificar_receta(
              sizeof new_quantities_of_ingredients);
     }
 
-    puts(BLU BLD "¿Modificar instrucciones? (s/n)" RESET);
+    puts(BLU BLD "\n¿Modificar instrucciones? (s/n)" RESET);
     fgets(s_n_str, BUFFER_SIZE, stdin);
+    puts("");
 
     if (strcmp(s_n_str, "s\n") == 0) {
-      fputs(BLD "\nIngrese la nueva cantidad de instrucciones" RESET, stdout);
+      fputs(BLD "Ingrese la nueva cantidad de instrucciones" RESET, stdout);
       int_input(&new_n_instructions, &validate_int_g0, false);
 
       for (int j = 0; j < new_n_instructions; j++) {
@@ -83,7 +88,7 @@ void cli_modificar_receta(
                   quantities_of_ingredients, recipe_names, ingredient_names,
                   instructions);
 
-    puts(GRN "Receta modificada exitosamente." RESET);
+    puts(GRN "\nReceta modificada exitosamente." RESET);
   } else
     puts(RECIPE_NOT_FOUND_ERROR);
 
