@@ -3,28 +3,32 @@
 #ifndef DATA_H
 #define DATA_H
 
-int search_recipe_by_name(char name[BUFFER_SIZE], int n_recipes,
-                          char recipe_names[BUFFER_SIZE][BUFFER_SIZE]);
+typedef struct Recipe {
+  char name[BUFFER_SIZE];
 
-void show_recipe(int i, int n_recipes, int n_ingredients[BUFFER_SIZE],
-                 int n_instructions[BUFFER_SIZE],
-                 float quantities_of_ingredients[BUFFER_SIZE][BUFFER_SIZE],
-                 char recipe_names[BUFFER_SIZE][BUFFER_SIZE],
-                 char ingredient_names[BUFFER_SIZE][BUFFER_SIZE][BUFFER_SIZE],
-                 char instructions[BUFFER_SIZE][BUFFER_SIZE][BUFFER_SIZE]);
+  int n_ingredients;
+  float quantities_of_ingredients[BUFFER_SIZE];
+  char ingredients[BUFFER_SIZE][BUFFER_SIZE];
 
-void show_all_recipes_names(int n_recipes,
-                            char recipe_names[BUFFER_SIZE][BUFFER_SIZE]);
+  int n_instructions;
+  char instructions[BUFFER_SIZE][BUFFER_SIZE];
+} Recipe;
 
-void modify_recipe(int i, char new_name[BUFFER_SIZE], int new_n_ingredients,
-                   char new_ingredients[BUFFER_SIZE][BUFFER_SIZE],
+void init_recipe(Recipe *recipe, char name[BUFFER_SIZE], int n_ingredients,
+                 float quantities_of_ingredients[BUFFER_SIZE],
+                 char ingredients[BUFFER_SIZE][BUFFER_SIZE], int n_instructions,
+                 char instructions[BUFFER_SIZE][BUFFER_SIZE]);
+
+int search_recipe_by_name(char name[], int n_recipes, Recipe recipes[]);
+
+void show_recipe(int i, Recipe recipes[]);
+
+void show_all_recipes_names(int n_recipes, Recipe recipes[]);
+
+void modify_recipe(int i, Recipe recipes[], char name[BUFFER_SIZE],
+                   int new_n_ingredients,
                    float new_quantities_of_ingredients[BUFFER_SIZE],
+                   char new_ingredients[BUFFER_SIZE][BUFFER_SIZE],
                    int new_n_instructions,
-                   char new_instructions[BUFFER_SIZE][BUFFER_SIZE],
-                   int n_ingredients[BUFFER_SIZE],
-                   int n_instructions[BUFFER_SIZE],
-                   float quantities_of_ingredients[BUFFER_SIZE][BUFFER_SIZE],
-                   char recipe_names[BUFFER_SIZE][BUFFER_SIZE],
-                   char ingredient_names[BUFFER_SIZE][BUFFER_SIZE][BUFFER_SIZE],
-                   char instructions[BUFFER_SIZE][BUFFER_SIZE][BUFFER_SIZE]);
+                   char new_instructions[BUFFER_SIZE][BUFFER_SIZE]);
 #endif

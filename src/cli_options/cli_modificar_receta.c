@@ -7,14 +7,7 @@
 #include <string.h>
 #include <style.h>
 
-void cli_modificar_receta(
-    int n_recipes, int n_ingredients[BUFFER_SIZE],
-    int n_instructions[BUFFER_SIZE],
-    float quantities_of_ingredients[BUFFER_SIZE][BUFFER_SIZE],
-    char recipe_names[BUFFER_SIZE][BUFFER_SIZE],
-    char ingredient_names[BUFFER_SIZE][BUFFER_SIZE][BUFFER_SIZE],
-    char instructions[BUFFER_SIZE][BUFFER_SIZE][BUFFER_SIZE]) {
-
+void cli_modificar_receta(int n_recipes, Recipe recipes[]) {
   char recipe_name[BUFFER_SIZE], new_name[BUFFER_SIZE],
       new_ingredients[BUFFER_SIZE][BUFFER_SIZE],
       new_instructions[BUFFER_SIZE][BUFFER_SIZE];
@@ -27,7 +20,7 @@ void cli_modificar_receta(
   fgets(recipe_name, BUFFER_SIZE, stdin);
   puts("");
 
-  int i = search_recipe_by_name(recipe_name, n_recipes, recipe_names);
+  int i = search_recipe_by_name(recipe_name, n_recipes, recipes);
 
   if (i >= 0) {
     // If recipe was found.
@@ -38,7 +31,7 @@ void cli_modificar_receta(
     puts("");
 
     if (strcmp(new_name, "\n") == 0) {
-      strcpy(new_name, recipe_names[i]);
+      strcpy(new_name, recipes[i].name); // Copy original name to new_name.
     }
 
     char s_n_str[BUFFER_SIZE];
@@ -59,9 +52,11 @@ void cli_modificar_receta(
                     false);
       }
     } else {
-      new_n_ingredients = n_ingredients[i];
-      memcpy(new_ingredients, ingredient_names[i], sizeof new_ingredients);
-      memcpy(new_quantities_of_ingredients, quantities_of_ingredients[i],
+      // Copy original values to new values.
+      new_n_ingredients = recipes[i].n_ingredients;
+      memcpy(new_ingredients, recipes[i].ingredients, sizeof new_ingredients);
+      memcpy(new_quantities_of_ingredients,
+             recipes[i].quantities_of_ingredients,
              sizeof new_quantities_of_ingredients);
     }
 
@@ -78,15 +73,15 @@ void cli_modificar_receta(
         fgets(new_instructions[j], BUFFER_SIZE, stdin);
       }
     } else {
-      new_n_instructions = n_instructions[i];
-      memcpy(new_instructions, instructions[i], sizeof new_instructions);
+      // Copy original instructions to new instructions.
+      new_n_instructions = recipes[i].n_instructions;
+      memcpy(new_instructions, recipes[i].instructions,
+             sizeof new_instructions);
     }
 
-    modify_recipe(i, new_name, new_n_ingredients, new_ingredients,
-                  new_quantities_of_ingredients, new_n_instructions,
-                  new_instructions, n_ingredients, n_instructions,
-                  quantities_of_ingredients, recipe_names, ingredient_names,
-                  instructions);
+    modify_recipe(i, recipes, new_name, new_n_ingredients,
+                  new_quantities_of_ingredients, new_ingredients,
+                  new_n_instructions, new_instructions);
 
     puts(GRN "\nReceta modificada exitosamente." RESET);
   } else
