@@ -6,9 +6,6 @@
 #include <stdio.h>
 #include <style.h>
 
-// TODO: Use structs.
-// TODO: Eliminación de datos.
-
 static bool menu_validator(int x) { return x > 0 && x <= 6; }
 
 int main() {
@@ -36,7 +33,7 @@ int main() {
       cli_crear_receta(&n_recipes, recipes);
       break;
     case 2:
-      // cli_eliminar_receta();
+      cli_eliminar_receta(&n_recipes, BUFFER_SIZE, recipes);
       break;
     case 3:
       cli_modificar_receta(n_recipes, recipes);

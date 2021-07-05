@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <data.h>
 #include <stdio.h>
 #include <string.h>
@@ -57,4 +58,16 @@ void show_all_recipes_names(int n_recipes, Recipe recipes[]) {
   for (int i = 0; i < n_recipes; i++) {
     printf(BLU "%i. " RESET "%s\n", i + 1, recipes[i].name);
   }
+}
+
+/*
+ * "Moves" each recipe on the right if i one index to the left.
+ */
+void remove_recipe_from_array(int i, int *n_recipes, int array_length,
+                              Recipe recipes[]) {
+  for (int j = i; j < *n_recipes - 1; j++)
+    if (j != array_length - 1)
+      recipes[j] = recipes[j + 1];
+
+  *n_recipes = *n_recipes - 1;
 }

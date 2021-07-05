@@ -8,7 +8,7 @@
 
 void cli_crear_receta(int *n_recipes, Recipe recipes[]);
 
-void cli_eliminar_receta();
+void cli_eliminar_receta(int *n_recipes, int array_length, Recipe recipes[]);
 
 void cli_modificar_receta(int n_recipes, Recipe recipes[]);
 
