@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <style.h>
+#include <utils.h>
 
 void cli_modificar_receta(int n_recipes, Recipe recipes[]) {
   char recipe_name[BUFFER_SIZE], new_name[BUFFER_SIZE],
@@ -18,6 +19,7 @@ void cli_modificar_receta(int n_recipes, Recipe recipes[]) {
   puts(BLD "Ingrese el nombre de la receta a modificar." RESET);
 
   fgets(recipe_name, BUFFER_SIZE, stdin);
+  remove_last_char(recipe_name);
   puts("");
 
   int i = search_recipe_by_name(recipe_name, n_recipes, recipes);
@@ -28,6 +30,7 @@ void cli_modificar_receta(int n_recipes, Recipe recipes[]) {
               "modificar): " RESET,
           stdout);
     fgets(new_name, BUFFER_SIZE, stdin);
+    remove_last_char(new_name);
     puts("");
 
     if (strcmp(new_name, "\n") == 0) {
@@ -46,6 +49,7 @@ void cli_modificar_receta(int n_recipes, Recipe recipes[]) {
       for (int j = 0; j < new_n_ingredients; j++) {
         fputs(BLD "\nIngrese el nombre del ingrediente: " RESET, stdout);
         fgets(new_ingredients[j], BUFFER_SIZE, stdin);
+        remove_last_char(new_ingredients[j]);
 
         fputs(BLD "Ingrese la cantidad del ingrediente" RESET, stdout);
         float_input(&new_quantities_of_ingredients[j], &validate_float_g0,
@@ -71,6 +75,7 @@ void cli_modificar_receta(int n_recipes, Recipe recipes[]) {
       for (int j = 0; j < new_n_instructions; j++) {
         fputs(BLD "\nIngrese cada instrucción para la receta: " RESET, stdout);
         fgets(new_instructions[j], BUFFER_SIZE, stdin);
+        remove_last_char(new_instructions[j]);
       }
     } else {
       // Copy original instructions to new instructions.

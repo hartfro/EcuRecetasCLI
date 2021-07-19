@@ -1,6 +1,7 @@
 #include <data.h>
 #include <stdio.h>
 #include <style.h>
+#include <utils.h>
 
 void cli_eliminar_receta(int *n_recipes, int array_length, Recipe *recipes) {
   char recipe_name[BUFFER_SIZE];
@@ -10,6 +11,7 @@ void cli_eliminar_receta(int *n_recipes, int array_length, Recipe *recipes) {
   puts(BLD "Ingrese el nombre de la receta a eliminar." RESET);
 
   fgets(recipe_name, BUFFER_SIZE, stdin);
+  remove_last_char(recipe_name);
 
   // Perform linear search through data.
   int i = search_recipe_by_name(recipe_name, *n_recipes, recipes);
