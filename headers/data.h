@@ -34,4 +34,6 @@ void modify_recipe(int i, Recipe recipes[], char name[BUFFER_SIZE],
 
 void remove_recipe_from_array(int i, int *n_recipes, int array_length,
                               Recipe recipes[]);
+
+void dump_data(int n_recipes, Recipe recipes[], char *file_path);
 #endif

@@ -41,6 +41,7 @@ void cli_crear_receta(int *n_recipes, Recipe recipes[]) {
     remove_last_char(recipes[i].instructions[j]);
   }
 
+  dump_data(*n_recipes, recipes, DATA_FILE);
   puts(GRN "Receta creada exitosamente. Presione " BLD "ENTER " RESET GRN
            "para continuar." RESET);
   getchar();

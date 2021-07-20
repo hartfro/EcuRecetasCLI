@@ -1,3 +1,4 @@
+#include <constants.h>
 #include <data.h>
 #include <stdio.h>
 #include <style.h>
@@ -24,6 +25,7 @@ void cli_eliminar_receta(int *n_recipes, int array_length, Recipe *recipes) {
     puts(RECIPE_NOT_FOUND_ERROR);
   }
 
+  dump_data(*n_recipes, recipes, DATA_FILE);
   puts(GRN "\nPresione " BLD "ENTER " RESET GRN "para continuar.");
   getchar();
 }

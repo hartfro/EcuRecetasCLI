@@ -92,6 +92,8 @@ void cli_modificar_receta(int n_recipes, Recipe recipes[]) {
   } else
     puts(RECIPE_NOT_FOUND_ERROR);
 
+  dump_data(n_recipes, recipes, DATA_FILE);
+
   puts(GRN "\nPresione " BLD "ENTER " RESET GRN "para continuar.");
   getchar();
 }

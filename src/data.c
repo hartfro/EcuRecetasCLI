@@ -71,3 +71,35 @@ void remove_recipe_from_array(int i, int *n_recipes, int array_length,
 
   *n_recipes = *n_recipes - 1;
 }
+
+/*
+ * Saves an array of recipes in a file.
+ */
+void dump_data(int n_recipes, Recipe recipes[], char *file_path) {
+  FILE *file = fopen(file_path, "w");
+
+  if (file == NULL) {
+    puts(RED "El archivo no se abrió correctamente.");
+    return;
+  }
+
+  for (int i = 0; i < n_recipes; i++) {
+    Recipe recipe = recipes[i];
+
+    fprintf(file, "%s\n", recipe.name);
+    fprintf(file, "%i\n", recipe.n_ingredients);
+
+    for (int j = 0; j < recipe.n_ingredients; j++)
+      fprintf(file, "%f\n", recipe.quantities_of_ingredients[j]);
+
+    for (int j = 0; j < recipe.n_ingredients; j++)
+      fprintf(file, "%s\n", recipe.ingredients[j]);
+
+    fprintf(file, "%i\n", recipe.n_instructions);
+
+    for (int j = 0; j < recipe.n_instructions; j++)
+      fprintf(file, "%s\n", recipe.instructions[j]);
+  }
+
+  fclose(file);
+}

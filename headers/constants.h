@@ -4,4 +4,6 @@
 #define BUFFER_SIZE 100
 #define RECIPE_NOT_FOUND_ERROR RED "¡Receta no encontrada!"
 
+#define DATA_FILE "data.txt"
+
 #endif
