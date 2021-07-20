@@ -1,0 +1,82 @@
+Jugo de tomate de árbol
+4
+4.000000
+1.000000
+1.000000
+1.000000
+Tomate de árbol
+Agua (litros)
+Azúcar (al gusto)
+Hielo (al gusto)
+3
+Pelar los tomates de árbol y cortarlos en cuartos.
+Licuar los tomates de árbol picados con el agua (o leche), y azúcar al gusto.
+Cernir y agregar hielo, o dejar enfriar en la nevera si lo desea bien frio.
+Dulce de babaco
+6
+1.000000
+1.000000
+2.000000
+2.000000
+2.000000
+0.500000
+Babaco maduro
+Taza de azúcar
+Taza de agua
+Rama de canela
+Clavo de olor
+Limón
+5
+Pele el babaco y córtelo en pedazos medianos.
+Espolvoree un poco de azúcar en los pedazos de babaco y déjelos reposar.
+Hierva 2 tazas de agua, con azúcar, canela, el clavo de olor y el jugo de limón.
+Añada los trozos de babaco y deje cocinar esta mezcla hasta que la fruta esté transparente.
+Retire del fuego y deje enfriar.
+Dulce de tomate de árbol
+4
+10.000000
+1.500000
+1.000000
+3.000000
+Tomate de árbol
+Azúcar (tazas)
+Canela y clavo de olor (al gusto)
+Tazas de agua
+4
+Pelar los tomates de árbol conservando únicamente su tallo.
+Hervir en 3 tazas de agua las especias y el azúcar hasta que tome punto almíbar.
+Colocar los tomates en el almíbar y cocinar por 15 minutos.
+Servir caliente o frío.
+Patacones
+3
+4.000000
+1.000000
+1.000000
+Plátano verde
+Aceite para freir
+Sal (al gusto)
+5
+Colocar el aceite en una olla pequeña o en un recipiente a fuego moderado.
+Dejar que cliente y poner a dorar el verde. Aplastarlos con un plato y darles forma.
+Se los puede remojar en agua con sal antes de volver a freírlos si los desea extra crocantes.
+Vuelva a freírlos en el aceite caliente hasta que terminen de dorarse y se vuelvan crocantes.
+Espolvorear con sal al gusto (si no los remojo en agua salada).
+Ensalada de atún
+7
+2.000000
+2.000000
+0.500000
+1.000000
+1.000000
+1.000000
+1.000000
+Lata de atún
+Tomate picado en cuadros
+Cebollada colorada picada en cuadros
+Jugo de limón
+Aceite (al gusto)
+Culantro picado (al gusto)
+Sal (al gusto)
+2
+Poner todos los ingredientes en un recipiente y mezclar bien. Agregar sal/limón al gusto.
+Se puede refrigerar para servir más tarde o servir al momento.
