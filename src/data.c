@@ -122,6 +122,7 @@ void load_data(int *n_recipes, Recipe recipes[], char *file_path) {
     char *is_eof = fgets(recipe.name, BUFFER_SIZE, file);
     if (is_eof == NULL)
       break;
+    remove_last_char(recipe.name);
 
     fgets(temp, BUFFER_SIZE, file);
     recipe.n_ingredients = atoi(temp);
@@ -131,14 +132,18 @@ void load_data(int *n_recipes, Recipe recipes[], char *file_path) {
       recipe.quantities_of_ingredients[i] = atof(temp);
     }
 
-    for (int i = 0; i < recipe.n_ingredients; i++)
+    for (int i = 0; i < recipe.n_ingredients; i++) {
       fgets(recipe.ingredients[i], BUFFER_SIZE, file);
+      remove_last_char(recipe.ingredients[i]);
+    }
 
     fgets(temp, BUFFER_SIZE, file);
     recipe.n_instructions = atoi(temp);
 
-    for (int i = 0; i < recipe.n_instructions; i++)
+    for (int i = 0; i < recipe.n_instructions; i++) {
       fgets(recipe.instructions[i], BUFFER_SIZE, file);
+      remove_last_char(recipe.instructions[i]);
+    }
 
     recipes[*n_recipes] = recipe;
   }
