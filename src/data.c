@@ -1,5 +1,4 @@
 #include "constants.h"
-#include <assert.h>
 #include <data.h>
 #include <stdio.h>
 #include <stdlib.h>

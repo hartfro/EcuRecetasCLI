@@ -33,7 +33,7 @@ void cli_modificar_receta(int n_recipes, Recipe recipes[]) {
     remove_last_char(new_name);
     puts("");
 
-    if (strcmp(new_name, "\n") == 0) {
+    if (strcmp(new_name, "") == 0) {
       strcpy(new_name, recipes[i].name); // Copy original name to new_name.
     }
 
