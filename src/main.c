@@ -18,6 +18,8 @@ int main() {
   while (1) {
     puts(CLR);
 
+    load_data(&n_recipes, recipes, DATA_FILE);
+
     puts(RED BLD "\nEcuRecetas - Menú Principal" RESET);
     puts(BLD "1. " RESET "Crear Receta.");
     puts(BLD "2. " RESET "Eliminar Receta.");

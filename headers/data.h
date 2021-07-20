@@ -36,4 +36,5 @@ void remove_recipe_from_array(int i, int *n_recipes, int array_length,
                               Recipe recipes[]);
 
 void dump_data(int n_recipes, Recipe recipes[], char *file_path);
+void load_data(int *n_recipes, Recipe recipes[], char *file_path);
 #endif

@@ -1,8 +1,11 @@
+#include "constants.h"
 #include <assert.h>
 #include <data.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <style.h>
+#include <utils.h>
 
 void init_recipe(Recipe *recipe, char name[BUFFER_SIZE], int n_ingredients,
                  float quantities_of_ingredients[BUFFER_SIZE],
@@ -99,6 +102,45 @@ void dump_data(int n_recipes, Recipe recipes[], char *file_path) {
 
     for (int j = 0; j < recipe.n_instructions; j++)
       fprintf(file, "%s\n", recipe.instructions[j]);
+  }
+
+  fclose(file);
+}
+
+void load_data(int *n_recipes, Recipe recipes[], char *file_path) {
+  FILE *file = fopen(file_path, "r");
+
+  if (file == NULL) {
+    puts(RED "El archivo no se abrió correctamente.");
+    return;
+  }
+
+  for (*n_recipes = 0; *n_recipes < BUFFER_SIZE; *n_recipes = *n_recipes + 1) {
+    Recipe recipe;
+    char temp[BUFFER_SIZE];
+
+    char *is_eof = fgets(recipe.name, BUFFER_SIZE, file);
+    if (is_eof == NULL)
+      break;
+
+    fgets(temp, BUFFER_SIZE, file);
+    recipe.n_ingredients = atoi(temp);
+
+    for (int i = 0; i < recipe.n_ingredients; i++) {
+      fgets(temp, BUFFER_SIZE, file);
+      recipe.quantities_of_ingredients[i] = atof(temp);
+    }
+
+    for (int i = 0; i < recipe.n_ingredients; i++)
+      fgets(recipe.ingredients[i], BUFFER_SIZE, file);
+
+    fgets(temp, BUFFER_SIZE, file);
+    recipe.n_instructions = atoi(temp);
+
+    for (int i = 0; i < recipe.n_instructions; i++)
+      fgets(recipe.instructions[i], BUFFER_SIZE, file);
+
+    recipes[*n_recipes] = recipe;
   }
 
   fclose(file);
